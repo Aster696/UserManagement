@@ -6,8 +6,8 @@ import sys
 
 class UserManagement:
 
-    is_loggedin = False
     def __init__(self) -> None:
+        self.is_loggedin = False
         self.main()
 
     def menu(self):
@@ -35,9 +35,6 @@ class UserManagement:
         else:
             print('Exiting the program. Thank you!')
             sys.exit()
-    
-    def menu_GUI(self):
-        pass
 
     def main(self):
         self.menu()
