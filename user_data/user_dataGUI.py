@@ -22,9 +22,7 @@ class UserDataGUI:
             self.tree.heading(col, text=col)
 
         # dispay data
-        for i, user in enumerate(users):
-            row_tag = 'evenrow' if i % 2 == 0 else 'oddrow'
-            self.tree.insert('', tk.END, values=(user['id'], user['name'], user['email'], user['password']), tags=(row_tag,))
-
-        # Pack the Treeview widget with padding and expand options
+        for user in users:
+            self.tree.insert('', tk.END, values=(user['id'], user['name'], user['email'], user['password']))
+        
         self.tree.pack(pady=20, fill=tk.BOTH, expand=True)
