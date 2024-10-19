@@ -1,5 +1,6 @@
 import csv
 import os
+from tkinter import messagebox
 
 class CSVFile:
 
@@ -19,6 +20,7 @@ class CSVFile:
                 existing_data = list(csv_reader)
                 for record in existing_data:
                     if record['email'] == data[0]['email']:
+                        messagebox.showerror('Error', 'Email already exists, please try another.')
                         print('Email already exists, please try another.')
                         return False
             last_id = 0
@@ -42,8 +44,10 @@ class CSVFile:
                         print('Login successful!')
                         return True
             print('Email/ Password is Invalid')
+            messagebox.showerror('Error', 'Email/ Password is Invalid')
             return False
         else:
+            messagebox.showerror('Error', 'File deos not exist')
             print('File does not exist.')
             return False
 
@@ -54,5 +58,6 @@ class CSVFile:
                 return list(csv_reader)
                
         else:
+            messagebox.showerror('Error', 'File deos not exist')
             print('File does not exist.')
             return None

@@ -8,6 +8,7 @@ class SignupGUI:
         self.master = master
         self.master.title('Singup')
         self.master.geometry(geometry)
+        self.master.bind(self.onSubmit)
         self.create_widgets()
 
     def create_widgets(self):
@@ -31,7 +32,7 @@ class SignupGUI:
 
         tk.Button(self.master, text='Submit', width=50, command=lambda: self.onSubmit()).pack(pady=20)
 
-    def onSubmit(self):
+    def onSubmit(self, event=None):
 
         if not self.name.get().strip() or not self.email.get().strip() or not self.password.get().strip() or not self.confirm_password.get().strip():
             messagebox.showinfo('Details required', 'Please fill in all the details')
